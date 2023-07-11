@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="city-section">
+    <h1>Select a City</h1>
+    <div class="dropdown">
+        <select id="citySelect">
+            <option value="">Choose City</option>
+            <option value="Nairobi">Nairobi</option>
+            <option value="Mombasa">Mombasa</option>
+            <option value="Kisumu">Kisumu</option>
+            <option value="Nakuru">Nakuru</option>
+            <option value="Eldoret">Eldoret</option>
+            <option value="Nyeri">Nyeri</option>
+            <option value="Kisii">Kisii</option>
+            <option value="Malindi">Malindi</option>
+            <option value="Thika">Thika</option>
+            <option value="Machakos">Machakos</option>
+            <option value="Nanyuki">Nanyuki</option>
+            <option value="Meru">Meru</option>
+            <option value="Naivasha">Naivasha</option>
+            <option value="Lamu">Lamu</option>
+            <option value="Kitale">Kitale</option>
+        </select>
+    </div>
+</section>
+<section class="insight-section">
+    <h1>Data Analytics Insights</h1>
+    <div class="insight-container">
+        <div class="insight-card">
+            <img src="{{ url_for('static', filename='nairobi.png') }}" alt="About Image">
+            <h2>NAIROBI</h2>
+            <p>Nairobi is known for its heavy traffic congestion. By analyzing traffic data, we can identify peak hours, traffic hotspots, and optimize transportation routes, leading to reduced travel time and improved traffic management.</p>
+        </div>
+        <div class="insight-card">
+            <img src="{{ url_for('static', filename='mombasa.png') }}" alt="About Image">
+            <h2>MOMBASA</h2>
+            <p>By analyzing crime data in Mombasa, we can identify high-crime areas, patterns, and factors contributing to criminal activities. This insight can help in developing effective crime prevention strategies and improving overall safety.</p>
+        </div>
+        <div class="insight-card">
+            <img src="{{ url_for('static', filename='kisumu.png') }}" alt="About Image">
+            <h2>KISUMU</h2>
+            <p>Kisumu has experienced rapid population growth over the years. By analyzing the population data, we can identify trends, patterns, and potential challenges for urban planning and resource allocation.</p>
+        </div>
+    </div>
+</section>
+<style>
+    body, h1, h2, h3, p, img, button, a {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set the background color and font styles */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+.city-section {
+
+    text-align: center;
+    margin: 50px;
+    background-image: url("static/mombasa.png");
+    background-size: cover;
+}
+
+.city-section h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown-btn:hover {
+    background-color: #e9e9e9;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    min-width: 160px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    .insight-section {
+        text-align: center;
+        margin: 50px;
+    }
+
+    .insight-section h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .insight-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .insight-card {
+        width: 300px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+    }
+
+    .insight-card img {
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+    .insight-card h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .insight-card p {
+        font-size: 16px;
+        color: #555;
+    }
+</style>
+<script>
+    // Get the select element
+const citySelect = document.getElementById('citySelect');
+
+// Add event listener to detect when a city is selected
+citySelect.addEventListener('change', function() {
+  // Get the selected city
+  const selectedCity = citySelect.value;
+  
+  // Display a message in the console
+  console.log('Selected city: ' + selectedCity);
+});
+</script>
+{% endblock %}
