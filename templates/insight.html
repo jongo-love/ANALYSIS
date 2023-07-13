@@ -4,24 +4,26 @@
 <section class="city-section">
     <h1>Select a City</h1>
     <div class="dropdown">
-        <select id="citySelect">
-            <option value="">Choose City</option>
-            <option value="Nairobi">Nairobi</option>
-            <option value="Mombasa">Mombasa</option>
-            <option value="Kisumu">Kisumu</option>
-            <option value="Nakuru">Nakuru</option>
-            <option value="Eldoret">Eldoret</option>
-            <option value="Nyeri">Nyeri</option>
-            <option value="Kisii">Kisii</option>
-            <option value="Malindi">Malindi</option>
-            <option value="Thika">Thika</option>
-            <option value="Machakos">Machakos</option>
-            <option value="Nanyuki">Nanyuki</option>
-            <option value="Meru">Meru</option>
-            <option value="Naivasha">Naivasha</option>
-            <option value="Lamu">Lamu</option>
-            <option value="Kitale">Kitale</option>
-        </select>
+        <form method="POST">
+            <select name="city">
+                {% for city in cities %}
+                <option value="{{ city }}" {% if selected_city == city %}selected{% endif %}>{{ city }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+       
+        {% if selected_city %}
+            <h2>Accident Data Analysis for {{ selected_city }}:</h2>
+            <h3>Monthly Accident Count:</h3>
+            <img src="{{ url_for('static', filename='bar_chart.png') }}" alt="Bar Chart">
+           
+            <h3>Yearly Accident Count:</h3>
+            <img src="{{ url_for('static', filename='line_chart.png') }}" alt="Line Chart">
+           
+            <h3>Accident Type Distribution:</h3>
+            <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie Chart">
+        {% endif %}    
     </div>
 </section>
 <section class="insight-section">
@@ -156,17 +158,4 @@ body {
         color: #555;
     }
 </style>
-<script>
-    // Get the select element
-const citySelect = document.getElementById('citySelect');
-
-// Add event listener to detect when a city is selected
-citySelect.addEventListener('change', function() {
-  // Get the selected city
-  const selectedCity = citySelect.value;
-  
-  // Display a message in the console
-  console.log('Selected city: ' + selectedCity);
-});
-</script>
 {% endblock %}
