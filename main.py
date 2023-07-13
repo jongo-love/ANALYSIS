@@ -1,9 +1,11 @@
 #creating a flask application.
-from flask import Flask, render_template, request
+import io
+from flask import Flask, render_template, request, send_file
 import matplotlib.pyplot as plt
 import pandas as pd
 import matplotlib
 import seaborn as sns
+import pdfkit
 matplotlib.use('Agg')
 
 app = Flask(__name__)
@@ -52,8 +54,10 @@ def insight():
         plt.title('Accident Type Distribution in ' + selected_city)
         plt.savefig('static/pie_chart.png')
         plt.close()
+        # Generate data report
+        data_report = city_accidents.to_string()
 
-        return render_template('insight.html', cities=cities, selected_city=selected_city)
+        return render_template('insight.html', cities=cities, selected_city=selected_city, data_report=data_report)
 
 
     return render_template('insight.html', cities=cities)
@@ -72,6 +76,13 @@ def signin():
 def signup():
     # Sign up logic goes here
     return 'Sign Up Page'
+
+@app.route('/download_report')
+def download_report():
+    data_report = request.args.get('data_report')
+    bytes_io = io.BytesIO(data_report.encode())
+    bytes_io.seek(0)
+    return send_file(bytes_io, mimetype='text/csv', download_name='data_report.csv', as_attachment=True)
 
 if __name__ == '__main__':
     # Create a dictionary with sample accident data

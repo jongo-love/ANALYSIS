@@ -23,6 +23,8 @@
            
             <h3>Accident Type Distribution:</h3>
             <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie Chart">
+            <h3>Data Report:</h3>
+            <a class="download-link" href="{{ url_for('download_report', data_report=data_report) }}">Download Data Report</a>
         {% endif %}    
     </div>
 </section>
@@ -156,6 +158,16 @@ body {
     .insight-card p {
         font-size: 16px;
         color: #555;
+    }
+    .download-link {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 30px;
+    }
+
+.download-link:hover {
+    color: red;
     }
 </style>
 {% endblock %}
