@@ -52,8 +52,35 @@
                 display: block;
                 text-align: left;
             }
+            .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons i {
+    font-size: 24px; /* Adjust the size as needed */
+    color: #3b5998; /* Apply the brand color for Facebook */
+}
+
+.social-icons i.fab.fa-twitter {
+    color: #1da1f2; /* Apply the brand color for Twitter */
+}
+
+.social-icons i.fab.fa-instagram {
+    color: #c13584; /* Apply the brand color for Instagram */
+}
+
+.social-icons i.fab.fa-whatsapp {
+    color: #25d366; /* Apply the brand color for WhatsApp */
+}
+        }
+        footer a{
+            padding: 30px;
+            margin: 10px;
+            font-size: 30px;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <nav class="navbar" id="myNavbar">
@@ -74,6 +101,12 @@
     
     <footer>
         <p>&copy; 2023 NIELSEN ANALYTICS. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://whatsapp.com/send?phone=+254740532120" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
     </footer>
 
     <script>

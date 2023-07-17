@@ -1,14 +1,16 @@
 #creating a flask application.
 import io
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file,
 import matplotlib.pyplot as plt
 import pandas as pd
 import matplotlib
 import seaborn as sns
-import pdfkit
 matplotlib.use('Agg')
 
 app = Flask(__name__)
+
+
+
 
 @app.route('/')
 def home():
@@ -70,12 +72,12 @@ def logout():
 @app.route('/signin')
 def signin():
     # Sign in logic goes here
-    return 'Sign In Page'
+    return render_template('signin.html')
 
 @app.route('/signup')
 def signup():
     # Sign up logic goes here
-    return 'Sign Up Page'
+    return render_template('signup.html')
 
 @app.route('/download_report')
 def download_report():
