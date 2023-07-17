@@ -1,6 +1,6 @@
 #creating a flask application.
 import io
-from flask import Flask, render_template, request, send_file,
+from flask import Flask, render_template, request, send_file
 import matplotlib.pyplot as plt
 import pandas as pd
 import matplotlib
